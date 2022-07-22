@@ -81,7 +81,6 @@ func main() {
 		"who":     AppName,
 		"version": Version,
 	})
-	logger.Logger.SetLevel(config.GetLogLevel())
 
 	logger.WithField("host", "localhost:8080").Info("starting server...")
 	spaConfig := nerdweb.DefaultSPAConfig("localhost:8080", Version, appFs, indexHTML, mainJS, manifestJSON)
@@ -125,7 +124,7 @@ Now that we have the foundation for an API and serving our JavaScript applicatio
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Application</title>
 
-  <link rel="stylesheet" href="/static/libraries/nerdadmin/nerdadmin.css" />
+  <link rel="stylesheet" href="/static/libraries/nerdadmin/nerdadmin.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 
@@ -162,13 +161,11 @@ Now that we have the foundation for an API and serving our JavaScript applicatio
 As you can see this houses the foundation for every page. It has our title, menu, and a space to inject views in an element named **app**. It also loads **main.js**, so let's take a look at that next.
 
 ```js
-import { nerdalert } from "./static/libraries/nerdadmin/nerdalert.js";
-import { nerdconfirm } from "./static/libraries/nerdadmin/nerdconfirm.js";
-import { nerdshim } from "./static/libraries/nerdadmin/nerdshim.js";
+import nerdadmin from "./static/libraries/nerdadmin/nerdadmin.min.js";
 
 import Home from "./static/views/Home.js";
 
-import { application, fetch } from "./static/libraries/nerdwebjs/nerdwebjs.js";
+import { application, fetch } from "./static/libraries/nerdwebjs/nerdwebjs.min.js";
 
 const routes = [
   { path: "/", view: Home },
@@ -190,9 +187,9 @@ app.afterRoute(() => {
  */
 app.injectParams(() => {
   return {
-    nerdalert: nerdalert(),
-    nerdconfirm: nerdconfirm(),
-    nerdshim: nerdshim(),
+    nerdalert: nerdadmin.nerdalert(),
+    nerdconfirm: nerdadmin.nerdconfirm(),
+    nerdshim: nerdadmin.nerdshim(),
   };
 });
 
