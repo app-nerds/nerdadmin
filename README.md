@@ -234,7 +234,19 @@ export default class Home extends BaseView {
 customElements.define("home-page", Home);
 ```
 
-## Popup Menus
+To run it execute the following in the `ourapplication` directory.
+
+```bash
+$ go run .
+```
+
+## CSS
+
+
+
+## JavaScript Components
+
+### Popup Menus
 
 `popup-menu.js` provides the ability to define popup menus. These are useful for small utility menus on a page.
 

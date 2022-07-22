@@ -13,6 +13,13 @@
   --shadow-color: rgba(0, 0, 0, 0.16);
   --border-color: #ccc;
 
+  /*
+   * Tables
+   */
+  --table-border: #EEEEEE;
+	--table-header-background-color: #394263;
+	--table-header-color: #fff;
+
   /* Elements */
   --sidebar-width: 240px;
 }
@@ -276,6 +283,28 @@ div.card div.content p {
 }
 
 /*
+ * Tables
+ */
+table {
+	width: 100%;
+	border: 1px solid var(--table-border);
+	border-spacing: 0px;
+}
+
+thead {
+	background-color: var(--table-header-background-color);
+	color: var(--table-header-color);
+}
+
+th, td {
+	padding: 1rem 0.5rem;
+}
+
+tr:nth-child(even) {
+	background-color: var(--table-border);
+}
+
+/*
  * Forms
  */
 form label {
@@ -298,6 +327,40 @@ form input[type="checkbox"] {
 }
 
 form input:focus, form textarea:focus, form select:focus {
+	border-color: var(--primary-color);
+	outline: 0;
+	box-shadow: 0 0 0 .20rem var(--primary-color);
+}
+
+/*
+ * Filters
+ */
+section.filters {
+  background-color: #ccc4;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  margin: 1rem 0 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 1rem 1rem;
+}
+
+section.filters input, section.filters textarea, section.filters select {
+	margin-bottom: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	font-size: 1rem;
+	border: 1px solid var(--border-color);
+	border-radius: 0.25rem;
+}
+
+section.filters input[type="checkbox"] {
+	width: auto;
+}
+
+section.filters input:focus, section.filters textarea:focus, section.filters select:focus {
 	border-color: var(--primary-color);
 	outline: 0;
 	box-shadow: 0 0 0 .20rem var(--primary-color);
