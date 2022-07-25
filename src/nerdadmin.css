@@ -349,7 +349,7 @@ section.filters {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem 1rem;
 }
 
@@ -369,6 +369,31 @@ section.filters input:focus, section.filters textarea:focus, section.filters sel
 	border-color: var(--primary-color);
 	outline: 0;
 	box-shadow: 0 0 0 .20rem var(--primary-color);
+}
+
+section.filters button {
+  background-color: #fff;
+  color: #000;
+  opacity: 0.8;
+  border: 1px solid var(--border-color);
+  align-items: center;
+  display: inline-flex;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+section.filters button svg {
+  margin-right: 0.3rem;
+}
+
+section.filters button.action {
+  margin-left: auto;
+}
+
+section.filters button:disabled {
+  color: var(--border-color);
+  cursor: default;
 }
 
 /*
