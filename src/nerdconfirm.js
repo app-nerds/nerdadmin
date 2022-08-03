@@ -101,9 +101,15 @@ export function nerdconfirm(baseOptions = {
       show("confirm", message, options);
     },
 
-    yesNo(message, callback, options) {
-      options = { ...{ callback: callback }, ...options };
-      show("yesno", message, options);
+    yesNo(message, options) {
+      return new Promise((resolve) => {
+        const cb = (result) => {
+          return resolve(result);
+        };
+
+        options = { ...{ callback: cb }, ...options };
+        show("yesno", message, options);
+      });
     },
   };
 }
